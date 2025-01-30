@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garena presentes</title>
+    <link rel="icon" href="imagens/main/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        .image-box {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .image-box.selected {
+            border: 5px solid #4CAF50;
+        }
+
+       
+        #confirmation-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            text-align: center;
+            color: white;
+        }
+
+        #confirmation-message img {
+            width: 70px;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+        }
+
+        #confirmation-message h2 {
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        #confirmation-message #confirmation-text {
+            margin: 10px 0;
+        }
+
+        #submit-btn {
+            padding: 10px 25px;
+            background-color: #4CAF50;
+            color: rgb(255, 255, 255);
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        
+        #id-input {
+            padding: 10px;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+            background: #ffffff;
+            color: #ff0000;
+            font-size: 1.2em;
+            font-weight: bold;
+            resize: none;
+            margin-right: 10px;
+        }
+
+        
+        #actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        
+        #loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2000;
+        }
+
+        .spinner {
+            width: 80px;
+            height: 80px;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            border-top: 8px solid #4CAF50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>❤️ PRESENTES EM PROMOÇÃO ❤️</h1>
+    </header>
+    
+    <section id="image-gallery">
+
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item1.png" alt="Item 1">
+            <p>Item 1</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item2.png" alt="Item 2">
+            <p>Item 2</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item3.png" alt="Item 3">
+            <p>Item 3</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item4.png" alt="Item 4">
+            <p>Item 4</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item5.png" alt="Item 5">
+            <p>Item 5</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item6.png" alt="Item 6">
+            <p>Item 6</p>
+        </div>
+
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item7.png" alt="Item 1">
+            <p>Item 1</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item8.png" alt="Item 2">
+            <p>Item 2</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item9.png" alt="Item 3">
+            <p>Item 3</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item10.png" alt="Item 4">
+            <p>Item 4</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item11.png" alt="Item 5">
+            <p>Item 5</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item12.png" alt="Item 6">
+            <p>Item 6</p>
+        </div>
+
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item13.png" alt="Item 1">
+            <p>Item 1</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item14.png" alt="Item 2">
+            <p>Item 2</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item15.png" alt="Item 3">
+            <p>Item 3</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item16.png" alt="Item 4">
+            <p>Item 4</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item17.png" alt="Item 5">
+            <p>Item 5</p>
+        </div>
+        <div class="image-box" onclick="selectImage(this)">
+            <img src="imagens/item18.png" alt="Item 6">
+            <p>Item 6</p>
+        </div>
+
+    </section>
+
+    <section id="selected-images">
+        <div id="actions">
+            <textarea id="id-input" placeholder="Insira o ID aqui" rows="1" onkeypress="handleKeyPress(event)"></textarea>
+            <button id="submit-btn" onclick="submitImages()">Enviar</button>
+        </div>
+    </section>
+
+    <div id="confirmation-message">
+        <img src="imagens/main/success.png" alt="Sucesso">
+        <h2>Enviado com sucesso!</h2>
+        <div id="confirmation-text"></div>
+        <button onclick="closeConfirmation()">Fechar</button>
+    </div>
+
+    <div id="loading-spinner">
+        <div class="spinner"></div>
+    </div>
+
+    <footer>
+        Todos os direitos reservados a Garena Free Fire x DV HACKz
+    </footer>
+
+    <script>
+        let selectedImages = [];
+        let isSubmitting = false;
+
+        function selectImage(element) {
+            element.classList.toggle('selected');
+            const imgSrc = element.querySelector('img').src;
+            const index = selectedImages.indexOf(imgSrc);
+            if (index > -1) {
+                selectedImages.splice(index, 1);
+            } else {
+                selectedImages.push(imgSrc);
+            }
+        }
+
+        function submitImages() {
+            if (isSubmitting) return;
+            isSubmitting = true; 
+
+            const confirmationText = document.getElementById('confirmation-text');
+            const idInput = document.getElementById('id-input').value.trim(); 
+            confirmationText.innerHTML = ""; 
+
+            
+            if (idInput === "") {
+                isSubmitting = false; 
+                return; 
+            }
+
+            
+            document.getElementById('submit-btn').disabled = true;
+            document.getElementById('loading-spinner').style.display = 'block';
+
+            
+            setTimeout(() => {
+                
+                selectedImages.forEach(src => {
+                    confirmationText.innerHTML += `<img src="${src}" alt="Imagem Selecionada" style="width: 50px; height: 50px; margin: 5px;">`;
+                });
+
+                
+                confirmationText.innerHTML += `<p>ID: ${idInput}</p>`;
+
+                
+                selectedImages = [];
+                document.getElementById('id-input').value = ""; 
+
+                document.getElementById('confirmation-message').style.display = 'block'; 
+                document.getElementById('loading-spinner').style.display = 'none'; 
+                document.getElementById('submit-btn').disabled = false; 
+                isSubmitting = false;
+            }, 2000); 
+        }
+
+        function closeConfirmation() {
+            
+            const imageBoxes = document.querySelectorAll('.image-box');
+            imageBoxes.forEach(box => box.classList.remove('selected'));
+            selectedImages = []; 
+
+            document.getElementById('confirmation-message').style.display = 'none'; 
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                event.preventDefault(); 
+                submitImages();
+            }
+        }
+    </script>
+</body>
+</html>
